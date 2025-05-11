@@ -1,14 +1,27 @@
-const express = require('express')
-// importo express y luego lo ejecuto
-const app = express()
-const port = 3000
+require('dotenv').config({ path: '../.env' }); // Asegúrate de que la ruta sea correcta
 
-// ruta principal de la app envia este mensaje al cliente con app.get ya que no se modifican datos
+const mongoose = require('mongoose'); // Importamos Mongoose
+const express = require('express'); // Importamos Express
 
-app.get('/', (req, res) => {
-  res.send('Probando servidor')
-})
-//llama a que escuche al puerto cuando inicializa el servidor
+const app = express();
+const port = 3000;
+const Producto = require('../models/products.model'); // Importamos el modelo
+
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log(" Conectado a MongoDB"))
+.catch((err) => console.error(" Error al conectar a MongoDB:", err));
+
+app.get('/', async (req, res) => { //  
+  try {
+    const productos = await Producto.find(); //  Obtener productos 
+    console.log("Productos en la base de datos:", productos);
+    res.send('Probando servidor con productos: ' + JSON.stringify(productos)); // Enviar datos al cliente
+  } catch (error) {
+    console.error(" Error al obtener productos:", error);
+  }
+});
+
+// Escuchar el puerto cuando el servidor inicia
 app.listen(port, () => {
-  console.log(`Escuchando el puerto ${port}`)
-})
+  console.log(` Servidor corriendo en el puerto ${port}`);
+});
