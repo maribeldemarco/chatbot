@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair:wght@400;700&display=swap');
+
+li {
+    font-family: 'Playfair Display', serif;
+    list-style: none !important;
+}
+
+nav ul>li:not(:first-child) {
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+
+nav ul {
+    display: flex;
+    padding-left: 10px;
+    /* Anula el padding izquierdo predeterminado del ul */
+    justify-content: flex-end;
+    align-items: center;
+    /* Alinea verticalmente los elementos al centro */
+}
+
+
+ul li a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+ul> :first-child {
+    margin-right: auto;
+    margin-left: 0px !important;
+    /* Empuja solo el primer elemento hacia la izquierda */
+    align-self: center;
+}
+
+nav ul>li:first-child a {
+    color: rgb(170, 136, 17);
+    font-family: 'Playfair';
+    font-size: 68px;
+}
+
+section {
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    margin-left: 5px;
+    color: rgb(101, 43, 11);
+    flex-direction: column;
+    margin-top: 30px;
+
+}
+
+section p:first-child {
+    margin-bottom: 0;
+    /* Elimina el margen inferior predeterminado */
+    font-size: 80px;
+    font-weight: bold;
+}
+
+
+section :nth-child(2) {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(101, 43, 11);
+
+}
+
+button {
+    background-color: rgb(255, 217, 80);
+    border-radius: 122px;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-self: flex-start;
+    /* El botón se alinea al inicio (izquierda) y ocupa solo su ancho */
+
+}
