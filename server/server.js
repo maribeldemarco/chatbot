@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../.env' }); // Asegúrate de que la ruta sea correcta
+require('dotenv').config({ path: '../.env' }); // ruta para traer variables de entorno
 
 const mongoose = require('mongoose'); // Importamos Mongoose
 const express = require('express'); // Importamos Express
