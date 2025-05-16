@@ -11,7 +11,5 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
  constructor(private router: Router) {}
 
-  navegarAlBot() {
-    this.router.navigate(['/bot']);
-  }
+
 }

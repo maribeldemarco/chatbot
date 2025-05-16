@@ -1,8 +1,6 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 /* You can add global styles to this file, and also import other style files */
-html, body {
-  height: 100%;
-  margin: 0; /* Asegúrate de no tener márgenes predeterminados */
-}
+
 
 body {
   background-image: url('/jnWGWSWTVqU.jpg');
@@ -10,3 +8,5 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed; /* Opcional: para que el fondo no se desplace */
 }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
