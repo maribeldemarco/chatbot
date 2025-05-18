@@ -13,6 +13,7 @@ nav ul>li:not(:first-child) {
     font-weight: bold;
 }
 
+img {height: 1em}
 
 nav ul {
     display: flex;
@@ -41,5 +42,5 @@ ul> :first-child {
 nav ul>li:first-child a {
     color: rgb(170, 136, 17);
     font-family: 'Playfair';
-    font-size: 68px;
+    font-size: 48px;
 }
