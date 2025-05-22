@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,800;1,800&display=swap');
 html{margin-left: 10px;}
 
 li {
-    font-family: 'Playfair Display', serif;
+    font-family: "Work Sans", sans-serif;
     list-style: none !important;
+    font-weight: 800;
 }
 
 nav ul>li:not(:first-child) {
@@ -13,7 +14,7 @@ nav ul>li:not(:first-child) {
     font-weight: bold;
 }
 
-img {height: 1em}
+img {height: 3em}
 
 nav ul {
     display: flex;
@@ -44,3 +45,5 @@ nav ul>li:first-child a {
     font-family: 'Playfair';
     font-size: 48px;
 }
+
+nav {background-color: rgb(255, 240, 244);}

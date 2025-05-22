@@ -5,6 +5,7 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 const Producto = require('../models/products.model'); // Importamos el modelo
+const Sabor = require('../models/sabores.model');
 
 app.use(cors()); // ✅ Esto habilita CORS para todas las solicitudes
 mongoose.connect(process.env.MONGO_URI)
@@ -19,6 +20,16 @@ app.get('/', async (req, res) => {
   } catch (error) {
     console.error("Error al obtener productos:", error);
     res.status(500).json({ error: "Error al obtener productos" }); 
+  }
+});
+app.get('/api/sabores', async (req, res) => {
+  try {
+    const sabores = await Sabor.find(); // Obtener sabores
+    console.log("Sabores en la base de datos:", sabores);
+    res.json(sabores);
+  } catch (error) {
+    console.error("Error al obtener sabores:", error);
+    res.status(500).json({ error: "Error al obtener sabores" });
   }
 });
 

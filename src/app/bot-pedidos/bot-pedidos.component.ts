@@ -1,15 +1,16 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { ProductosService } from '../services/productos.service';
 import {MatCardModule} from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { HomeComponent } from "../home/home.component";
 
 @Component({
   standalone: true,
   selector: 'bot-pedidos',
   templateUrl: './bot-pedidos.component.html',
   styleUrls: ['./bot-pedidos.component.scss'],
-  imports: [MatCardModule, MatButtonModule, CommonModule],
+  imports: [MatCardModule, MatButtonModule, CommonModule, HomeComponent],
 })
 export class BotPedidosComponent implements OnInit {
 
