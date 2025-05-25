@@ -1,0 +1,25 @@
+
+.formulario {display: flex;
+flex-direction: column;
+align-items: center;
+
+
+}
+.contenedor {display: flex;
+justify-content: space-around;
+margin-top: 40px;
+max-height: 480px;
+
+}
+
+
+mat-form-field {width: 600px;}
+
+img{
+max-height: 450px ;
+}
+
+button{border-radius: 10px;
+width: 50%;
+margin-top: 10px;
+}
