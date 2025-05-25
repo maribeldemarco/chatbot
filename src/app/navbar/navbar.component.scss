@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,800;1,800&display=swap');
-html{margin-left: 10px;}
+
 
 li {
     font-family: "Work Sans", sans-serif;
-    list-style: none !important;
+    list-style: none ;
     font-weight: 800;
 }
 
@@ -22,7 +20,6 @@ nav ul {
     /* Anula el padding izquierdo predeterminado del ul */
     justify-content: flex-end;
     align-items: center;
-    margin-bottom: 0px !important;
     /* Alinea verticalmente los elementos al centro */
 }
 
@@ -35,15 +32,15 @@ ul li a {
 
 ul> :first-child {
     margin-right: auto;
-    margin-left: 0px !important;
+    margin-left: 0px ;
     /* Empuja solo el primer elemento hacia la izquierda */
     align-self: center;
 }
 
 nav ul>li:first-child a {
     color: rgb(170, 136, 17);
-    font-family: 'Playfair';
     font-size: 48px;
 }
 
-nav {background-color: rgb(255, 240, 244);}
+nav {background-color: rgb(255, 240, 244);
+opacity: 0.4 ;}

@@ -1,58 +1,54 @@
-:host::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.2); /* Un leve velo blanco */
-  backdrop-filter: blur(2px); /* Difumina ligeramente */
-  z-index: -1; /* Envía el efecto detrás de los elementos */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,800;1,800&display=swap');
+.cardcontainer {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap; /* Para que se ajusten automáticamente si no caben en la misma línea */
+  justify-content: center; /* Para centrar las tarjetas en la pantalla */
+  gap: 12px; /* Espacio entre tarjetas */
 }
+h1 {font-size: 46px;
+  margin-top: 45px;
+text-align: center;
+font-family: "Work Sans", sans-serif;}
 
+.helado {display: block;
+  margin-left: auto;
+  margin-right: auto;}
+  
+button{display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height:60px;
+background-color: rgb(253, 132, 178);
+margin-top: 20px;
+padding: 10px;
+border-radius: 10px;
+font-size: 20px;
+font-family: "Work sans", sans-serif;
+border-style: none;
+color:white}
 
-
-
+html{background-color: rgb(244, 236, 233) !important;}
 
 .example-card {
+  display: flex;
+  flex-direction: column; /* Asegura que la imagen y el contenido se apilen correctamente */
+  justify-content: center; /* Centra verticalmente los elementos */
+  align-items: center; /* Centra horizontalmente */
   width: 185px;
-  border-radius: 1px;
+  border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease;
   margin: 6px;
-   
-}
-
-.cardcontainer {display: flex;
-flex-wrap: wrap;
-margin-top: 35px;
-}
-mat-card {
-  background-color: rgba(255, 255, 255, 0.85); /* Blanco con leve transparencia */
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombras suaves */
-}
-
-
-body {
-  filter: brightness(0.95);
-}
-
-.example-card:hover {
-  transform: scale(1.01);
+  padding: 12px;
 }
 
 .example-card img {
-  max-width: 70%;
-  margin: auto;
-  max-height: 60%;
-}
-
-mat-card-title {
-  font-size: 1.2rem;
-  color: #151516;
-}
-
-mat-card-content {
-  font-size: 0.95rem;
-  color: #444;
-  padding: 8px 0 12px 0;
-  margin: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 120px; 
+  object-fit: contain; /* Evita que la imagen se recorte */
 }
