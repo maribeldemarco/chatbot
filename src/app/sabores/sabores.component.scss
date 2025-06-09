@@ -1,8 +1,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,800;1,800&display=swap');
+
+
+img {
+  background-color: #fff;}
+.texto {width:38%;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-top: 50px;
+  text-align:justify;
+font-family:  "Playfair Display";}
+.cardprincipal {display: flex;
+  justify-content: space-around;
+}
 .cardcontainer {
   margin-top: 50px;
   display: flex;
+  width: 58%;
   flex-wrap: wrap; /* Para que se ajusten automáticamente si no caben en la misma línea */
   justify-content: center; /* Para centrar las tarjetas en la pantalla */
   gap: 12px; /* Espacio entre tarjetas */
@@ -10,7 +24,10 @@
 h1 {font-size: 46px;
   margin-top: 45px;
 text-align: center;
+
 font-family: "Work Sans", sans-serif;}
+
+
 
 .helado {display: block;
   margin-left: auto;
@@ -44,6 +61,7 @@ html{background-color: rgb(244, 236, 233) !important;}
   transition: transform 0.2s ease;
   margin: 6px;
   padding: 12px;
+  font-family:  "Playfair Display";
 }
 
 .example-card img {
