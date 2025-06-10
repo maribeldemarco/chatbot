@@ -25,15 +25,19 @@
 
     Porque en Ice Cream Shop, hay un helado para cada ocasión. Y esta ocasión… es ahora. 🍨
   </p>
+  <div class="botoncentrado">
+  <button> Hacé tu pedido</button>
+  </div>
   </div>
   <div class="cardcontainer">
     <mat-card class="example-card" *ngFor="let sabor of sabores">
 
       <img mat-card-image [src]="sabor.imagen" [alt]="'Helado'">
+      <br>
       <mat-card-content>{{ sabor.nombre }} </mat-card-content>
+
     </mat-card>
 
 </div>
   </div>
 </div>
-<button> Hacé tu pedido</button>
