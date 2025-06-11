@@ -1,6 +1,22 @@
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 /* You can add global styles to this file, and also import other style files */
 
+html {
+  scroll-behavior: smooth;
+}
+/* styles.scss */
+
+section#sabores {margin-bottom: 200px;}
+
+section#contacto {position: relative;
+top:-160px}
+
+
+
+
+
+
+
 
 body {
  // background-image: url('/public/jnWGWSWTVqU.jpg');
