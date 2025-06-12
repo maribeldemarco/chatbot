@@ -1,5 +1,4 @@
-/*archivo para manejar las rutas momentaneamente desactivado
-ya que buscamos hacer un scroll con cada componente
+
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BotPedidosComponent } from './bot-pedidos/bot-pedidos.component';
@@ -17,4 +16,4 @@ export const routes: Routes = [
 
 
  ];
-*/
+
