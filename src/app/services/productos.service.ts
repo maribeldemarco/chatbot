@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class ProductosService {
 
   private apiUrl = 'http://localhost:3000/'; // 
+private baseUrl = 'http://localhost:3000/dialogflow';
 
   constructor(private http: HttpClient) {
   }
@@ -21,4 +22,8 @@ getSabores(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}api/sabores`); 
 
 }
+
+  sendMessage(message: string) {
+    return this.http.post<{ reply: string }>(this.baseUrl, { message });
+  }
 }

@@ -1,19 +1,39 @@
-
 <app-home></app-home>
-<mat-card class="example-card" appearance="outlined" >
+
+<mat-card class="example-card" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title> Chat de pedidos </mat-card-title>
-        <mat-card-subtitle> Hola! Bienvenido a nuestro bot de pedidos. Te comentamos cuales son los gustos disponibles.. </mat-card-subtitle>
-
+    <mat-card-title>Chat de pedidos</mat-card-title>
+    <mat-card-subtitle>
+      Hola! Bienvenido a nuestro bot de pedidos. Te comentamos cuáles son los gustos disponibles..
+    </mat-card-subtitle>
   </mat-card-header>
+
   <mat-card-content>
-   <p *ngFor="let producto of productos">
-    🍨 {{ producto.sabor }} - $ {{ producto.precio }} - {{ producto.tamano }}
-   </p>
+    <p *ngFor="let producto of productos">
+      🍨 {{ producto.sabor }} - $ {{ producto.precio }} - {{ producto.tamano }}
+    </p>
+
+    <hr>
+
+    <div class="chat-historial">
+      <div *ngFor="let mensaje of historial">
+        <p [ngClass]="{'usuario': mensaje.emisor === 'usuario', 'bot': mensaje.emisor === 'bot'}">
+          <strong>{{ mensaje.emisor === 'usuario' ? 'Tú:' : 'Bot:' }}</strong> {{ mensaje.texto }}
+        </p>
+      </div>
+    </div>
+
   </mat-card-content>
+
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <input
+      type="text"
+      [(ngModel)]="mensaje"
+      (keydown.enter)="enviar()"
+      placeholder="Escribí tu mensaje"
+      style="width: 80%;"
+    />
+    <button mat-button color="primary" (click)="enviar()">Enviar</button>
   </mat-card-actions>
 </mat-card>
