@@ -131,7 +131,7 @@ app.post('/dialogflow', async (req, res) => {
   }
 });
 
-// Escuchar el puerto cuando el servidor inicia
+// Escuchar el puerto cuando el servidor inicia.
 app.listen(port, () => {
   console.log(` Servidor corriendo en el puerto ${port}`);
 });
