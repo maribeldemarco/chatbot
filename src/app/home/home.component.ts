@@ -13,9 +13,6 @@ export class HomeComponent {
 
   constructor(private router: Router) {}
 
-  navegarAlBot() {
-    this.router.navigate(['/bot']);
-  }
 
   abrirBot() {
     this.router.navigate(['/botpedidos']);

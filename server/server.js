@@ -4,11 +4,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3000;
-const Producto = require('../models/products.model'); 
-const Sabor = require('../models/sabores.model');
-const Pedido = require('../models/pedido.model');
-const dialogflowClient = require('../src/app/dialogflowClient');
-const { sessionClient, projectId } = require('../src/app/dialogflowClient');
+const Producto = require('./models/products.model'); 
+const Sabor = require('./models/sabores.model');
+const Pedido = require('./models/pedido.model');
+const dialogflowClient = require('./dialogflowClient');
+const { sessionClient, projectId } = require('./dialogflowClient');
 
 
 app.use(express.json()); 
