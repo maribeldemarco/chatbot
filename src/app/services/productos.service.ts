@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class ProductosService {
 
   private apiUrl = environment.apiUrl;
-  private baseUrl = `${environment.apiUrl}dialogflow`;
+private baseUrl = this.apiUrl + 'dialogflow'; // https://chatbot-wb8b.onrender.com/dialogflow
 
   constructor(private http: HttpClient) { }
 
