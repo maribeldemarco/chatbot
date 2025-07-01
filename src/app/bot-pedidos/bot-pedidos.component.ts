@@ -5,13 +5,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductosService } from '../services/productos.service';
 import { HomeComponent } from "../home/home.component";
+import { MatIconModule } from '@angular/material/icon';
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   standalone: true,
   selector: 'bot-pedidos',
   templateUrl: './bot-pedidos.component.html',
   styleUrls: ['./bot-pedidos.component.scss'],
-  imports: [MatCardModule, MatButtonModule,FormsModule, CommonModule, HomeComponent],
+  imports: [MatCardModule, RouterModule, MatIconModule, MatButtonModule,FormsModule, CommonModule, HomeComponent],
 })
 export class BotPedidosComponent implements OnInit {
 
@@ -21,8 +24,7 @@ export class BotPedidosComponent implements OnInit {
 
   // Inyectamos ambos servicios
   constructor(
-    private productosService: ProductosService,
-  ) {}
+    private productosService: ProductosService, private router: Router) {}
 
   ngOnInit(): void {
     // Cargar productos
@@ -36,6 +38,11 @@ export class BotPedidosComponent implements OnInit {
       }
     });
   }
+
+
+cerrarChat () {
+  this.router.navigate(['/home'])
+}
 
   enviar() {
     const mensajeUsuario = this.mensaje.trim();
