@@ -1,11 +1,16 @@
 const dialogflow = require('dialogflow');
-const path = require('path');
+
+// Parseamos las credenciales desde la variable de entorno
+const credentials = JSON.parse(process.env.DIALOGFLOW_CREDENTIALS);
 
 const sessionClient = new dialogflow.SessionsClient({
-  keyFilename: path.join(__dirname, 'credenciales/credenciales.dialogflow.json'),
+  credentials: {
+    private_key: credentials.private_key,
+    client_email: credentials.client_email,
+  },
 });
 
-const projectId = 'botheladeria-uudf';
+const projectId = credentials.project_id;
 
 async function enviarMensajeDialogflow(texto, sessionId = '123456') {
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
@@ -15,9 +20,9 @@ async function enviarMensajeDialogflow(texto, sessionId = '123456') {
     queryInput: {
       text: {
         text: texto,
-        languageCode: 'es'
-      }
-    }
+        languageCode: 'es',
+      },
+    },
   };
 
   const responses = await sessionClient.detectIntent(request);
