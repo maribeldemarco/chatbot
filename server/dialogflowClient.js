@@ -1,9 +1,9 @@
-const { SessionsClient } = require('@google-cloud/dialogflow');
+const dialogflow = require('dialogflow');
 
 // Parseamos las credenciales desde la variable de entorno
 const credentials = JSON.parse(process.env.DIALOGFLOW_CREDENTIALS);
 
-const sessionClient = new SessionsClient({
+const sessionClient = new dialogflow.SessionsClient({
   credentials: {
     private_key: credentials.private_key,
     client_email: credentials.client_email,
@@ -31,4 +31,3 @@ async function enviarMensajeDialogflow(texto, sessionId = '123456') {
 }
 
 module.exports = { enviarMensajeDialogflow, sessionClient, projectId };
-
