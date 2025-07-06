@@ -50,10 +50,10 @@ app.post('/webhook', async (req, res) => {
   }
 
  
-if (
-  queryResult.intent.displayName === 'hacer_pedido' &&
-  (!queryResult.parameters.sabor || queryResult.parameters.sabor === '')
-) {
+const intent = queryResult.intent.displayName;
+const allParams = queryResult.allRequiredParamsPresent;
+
+if (intent === 'hacer_pedido' && allParams === false) {
   try {
     const sabores = await Sabor.find();
     const saboresListados = sabores.map(s => `– ${s.sabor}`).join('\n');
@@ -68,6 +68,7 @@ if (
     });
   }
 }
+
   const parametros = queryResult.parameters;
 
   console.log("Parámetros recibidos:", parametros); // Ver datos
