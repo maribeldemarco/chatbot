@@ -50,13 +50,13 @@ app.post('/webhook', async (req, res) => {
   }
 
  
-const saborParam = queryResult.parameters.sabor;
+const saborParam = queryResult.parameters?.sabor;
 
-// Si no dijo el sabor aún, lo pedimos mostrando todos los disponibles
 if (
   queryResult.intent.displayName === 'hacer_pedido' &&
-  (!saborParam || (Array.isArray(saborParam) && saborParam.length === 0))
-) {
+  (!saborParam || saborParam === '' || (Array.isArray(saborParam) && saborParam.length === 0))
+)
+ {
   const sabores = await Sabor.find();
   const saboresListados = sabores.map(s => `– ${s.sabor}`).join('\n');
 
