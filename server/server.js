@@ -49,6 +49,25 @@ app.post('/webhook', async (req, res) => {
     return res.json({ fulfillmentText: "No recibí queryResult en la petición." });
   }
 
+ 
+if (
+  queryResult.intent.displayName === 'hacer_pedido' &&
+  (!queryResult.parameters.sabor || queryResult.parameters.sabor === '')
+) {
+  try {
+    const sabores = await Sabor.find();
+    const saboresListados = sabores.map(s => `– ${s.sabor}`).join('\n');
+
+    return res.json({
+      fulfillmentText: `¿Qué sabor te gustaría? 🍨\n${saboresListados}`
+    });
+  } catch (err) {
+    console.error('Error al obtener sabores:', err);
+    return res.json({
+      fulfillmentText: 'No pudimos recuperar los sabores en este momento '
+    });
+  }
+}
   const parametros = queryResult.parameters;
 
   console.log("Parámetros recibidos:", parametros); // Ver datos
