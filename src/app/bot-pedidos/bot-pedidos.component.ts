@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
@@ -8,26 +8,28 @@ import { HomeComponent } from "../home/home.component";
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 
+
+
+
 @Component({
   standalone: true,
   selector: 'bot-pedidos',
   templateUrl: './bot-pedidos.component.html',
   styleUrls: ['./bot-pedidos.component.scss'],
-  imports: [MatCardModule, RouterModule, MatIconModule, MatButtonModule, FormsModule, CommonModule, HomeComponent],
+  imports: [MatCardModule, RouterModule, MatIconModule, MatButtonModule,FormsModule, CommonModule, HomeComponent],
 })
-export class BotPedidosComponent implements OnInit, AfterViewChecked {
-  @ViewChild('chatContainer') private chatContainer!: ElementRef;
+export class BotPedidosComponent implements OnInit {
 
   productos: any[] = [];
   mensaje = '';
   historial: { texto: string, emisor: 'usuario' | 'bot' }[] = [];
 
+  // Inyectamos ambos servicios
   constructor(
-    private productosService: ProductosService,
-    private router: Router
-  ) {}
+    private productosService: ProductosService, private router: Router) {}
 
   ngOnInit(): void {
+    // Cargar productos
     this.productosService.getProductos().subscribe({
       next: (data) => {
         this.productos = data;
@@ -39,24 +41,12 @@ export class BotPedidosComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  ngAfterViewChecked(): void {
-    this.scrollToBottom();
-  }
 
-  private scrollToBottom(): void {
-    try {
-      this.chatContainer.nativeElement.scrollTop =
-        this.chatContainer.nativeElement.scrollHeight;
-    } catch (err) {
-      console.warn('No se pudo hacer scroll automático:', err);
-    }
-  }
+cerrarChat () {
+  this.router.navigate(['/home'])
+}
 
-  cerrarChat(): void {
-    this.router.navigate(['/home']);
-  }
-
-  enviar(): void {
+  enviar() {
     const mensajeUsuario = this.mensaje.trim();
     if (!mensajeUsuario) return;
 
@@ -76,3 +66,4 @@ export class BotPedidosComponent implements OnInit, AfterViewChecked {
     });
   }
 }
+
