@@ -25,7 +25,7 @@
 
     <hr>
 
-    <div class="chat-historial">
+    <div class="chat-historial" #chatContainer>
       <div *ngFor="let mensaje of historial">
         <p [ngClass]="{'usuario': mensaje.emisor === 'usuario', 'bot': mensaje.emisor === 'bot'}">
           <strong>{{ mensaje.emisor === 'usuario' ? 'Tú:' : 'Bot:' }}</strong> {{ mensaje.texto }}
