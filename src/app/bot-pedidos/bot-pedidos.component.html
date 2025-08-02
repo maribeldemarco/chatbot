@@ -1,48 +1,49 @@
 <app-home></app-home>
 
 <mat-card class="example-card" appearance="outlined">
-
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Chat de pedidos</mat-card-title>
- <button mat-icon-button (click)="cerrarChat()" class="btn-cerrar">
+    <button mat-icon-button (click)="cerrarChat()" class="btn-cerrar">
       <mat-icon>close</mat-icon>
-    </button> 
+    </button>
     <mat-card-subtitle>
-        
-   Bienvenido a nuestro bot de pedidos. Te comentamos cuáles son los gustos disponibles.
-   Empieza el chat con nosotros para gestionar el delivery a domicilio!
+      Bienvenido a nuestro bot de pedidos. Te comentamos cuáles son los gustos disponibles.
+      Empieza el chat con nosotros para gestionar el delivery a domicilio!
     </mat-card-subtitle>
   </mat-card-header>
 
-  <mat-card-content>
-    
-    <br>
+  <mat-card-content class="chat-content">
+    <!-- Muestra los productos disponibles -->
     <p *ngFor="let producto of productos">
-      
       🍨 {{ producto.sabor }} - $ {{ producto.precio }} - {{ producto.tamano }}
     </p>
 
     <hr>
 
-    <div class="chat-historial">
+    <!-- Contenedor del historial de chat con la clase correcta -->
+    <div class="chat-history-container">
       <div *ngFor="let mensaje of historial">
-        <p [ngClass]="{'usuario': mensaje.emisor === 'usuario', 'bot': mensaje.emisor === 'bot'}">
+        <!-- Aplica las clases de estilo correctas -->
+        <p [ngClass]="{'mensaje-usuario': mensaje.emisor === 'usuario', 'mensaje-ia': mensaje.emisor === 'bot'}">
           <strong>{{ mensaje.emisor === 'usuario' ? 'Tú:' : 'Bot:' }}</strong> {{ mensaje.texto }}
         </p>
       </div>
     </div>
-
   </mat-card-content>
 
-  <mat-card-actions>
+  <mat-card-actions class="chat-actions">
+    <!-- Usa la clase correcta para el input -->
     <input
       type="text"
       [(ngModel)]="mensaje"
       (keydown.enter)="enviar()"
       placeholder="Escribí tu mensaje"
-      style="width: 80%;"
+      class="chat-input"
     />
-    <button mat-button color="primary" (click)="enviar()">Enviar</button>
+    <!-- Usa un botón de ícono para un diseño más limpio -->
+    <button mat-icon-button color="primary" (click)="enviar()">
+      <mat-icon>send</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>
