@@ -1,27 +1,33 @@
-<mat-card class="chat-card" appearance="outlined">
-  <div mat-card-avatar class="example-header-image"></div>
-
-  <mat-card-title class="flex justify-between items-center">
-    Chat de Consultas frecuentes
+<mat-card class="example-card" appearance="outlined">
+  <!-- Encabezado del chat -->
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Chat de Consultas frecuentes</mat-card-title>
     <button mat-icon-button (click)="cerrarChat()" class="btn-cerrar">
       <mat-icon>close</mat-icon>
     </button>
-  </mat-card-title>
+    <mat-card-subtitle>
+      Preguntanos por dirección, teléfono, horario o delivery. ¡Estamos para ayudarte!
+    <br>
 
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <!-- Contenido del chat -->
   <mat-card-content class="chat-content">
-    <!-- Contenedor del historial de chat -->
-    <div class="chat-history-container">
-      <div *ngFor="let mensaje of mensajes" 
-           [ngClass]="{'mensaje-usuario': mensaje.sender === 'user', 'mensaje-ia': mensaje.sender === 'ai'}">
-        {{ mensaje.text }}
+    <div class="chat-history-container" #chatHistorial>
+      <div *ngFor="let mensaje of mensajes">
+        <p [ngClass]="{'mensaje-usuario': mensaje.sender === 'user', 'mensaje-ia': mensaje.sender === 'ai'}">
+          <strong>{{ mensaje.sender === 'user' ? 'Tú:' : 'Bot:' }}</strong> {{ mensaje.text }}
+        </p>
       </div>
-      <!-- Indicador de carga cuando la IA está procesando la respuesta -->
       <div *ngIf="isLoading" class="mensaje-ia flex items-center">
         <mat-icon class="loading-spinner">autorenew</mat-icon> Escribiendo...
       </div>
     </div>
   </mat-card-content>
 
+  <!-- Acciones del chat -->
   <mat-card-actions class="chat-actions">
     <input
       type="text"
@@ -30,8 +36,8 @@
       placeholder="Escribí tu mensaje"
       class="chat-input"
     />
-    <button mat-button color="primary" (click)="enviarMensaje()" [disabled]="isLoading || !mensajeActual.trim()">
-      Enviar
+    <button mat-icon-button color="primary" (click)="enviarMensaje()" [disabled]="isLoading || !mensajeActual.trim()">
+      <mat-icon>send</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>
