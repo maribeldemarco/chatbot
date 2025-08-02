@@ -49,6 +49,7 @@ export class FaqComponent {
     this.scrollToBottom();
 
     try {
+      // The call is now made to your own backend
       const respuestaIA = await this.llamarGeminiApi(nuevoMensajeUsuario.text);
       const nuevoMensajeIA = { text: respuestaIA, sender: 'ai' as const };
       this.mensajes.push(nuevoMensajeIA);
@@ -61,47 +62,36 @@ export class FaqComponent {
       this.isLoading = false;
     }
   }
-scrollToBottom() {
-  if (this.chatHistorial) {
-    setTimeout(() => {
-      this.chatHistorial.nativeElement.scrollTop = this.chatHistorial.nativeElement.scrollHeight;
-    }, 0);
+
+  scrollToBottom() {
+    if (this.chatHistorial) {
+      setTimeout(() => {
+        this.chatHistorial.nativeElement.scrollTop = this.chatHistorial.nativeElement.scrollHeight;
+      }, 0);
+    }
   }
-}
 
-
-
+  // This method now calls your backend instead of the Gemini API directly
   private async llamarGeminiApi(userPrompt: string): Promise<string> {
-    const prompt = `Eres un chatbot útil para una popular heladería llamada "Ice Cream Shop". Tu propósito es responder preguntas frecuentes.
-
-    Aquí están los datos específicos que debes usar, no inventes nada:
-    - Dirección: Calle Falsa 123, Buenos Aires.
-    - Teléfono: 11-1111-8910.
-    - Horario: Lunes a viernes de 10:00 a 22:00, sábados y domingos de 11:00 a 23:00.
-    - Productos: Vendemos helados a domicilio.
-
-    Basado en esta información, responde a la pregunta del usuario: "${userPrompt}"`;
-
-    const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-    const payload = { contents: chatHistory };
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${environment.geminiApiKey}`;
-
     try {
-      const response = await fetch(apiUrl, {
+      // Send the user's prompt to your custom backend endpoint
+      const response = await fetch(`${environment.apiUrl}/api/gemini`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ prompt: userPrompt })
       });
 
-      const result = await response.json();
-
-      if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
-        return result.candidates[0].content.parts[0].text;
-      } else {
-        return "Lo siento, no pude generar una respuesta. Por favor, intenta de nuevo.";
+      if (!response.ok) {
+        throw new Error(`Server responded with status: ${response.status}`);
       }
+
+      const result = await response.json();
+      
+      // Get the response text from the backend's JSON
+      return result.respuestaIA;
+
     } catch (error) {
-      console.error('Error en la llamada a la API de Gemini:', error);
+      console.error('Error in the call to your backend API:', error);
       return "Hubo un error al comunicarme con el servidor. Por favor, intenta de nuevo más tarde.";
     }
   }

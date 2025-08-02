@@ -14,6 +14,10 @@
   </mat-card-header>
 
   <mat-card-content class="chat-content">
+ 
+   <p *ngIf="productos.length === 0">
+  ⏳ Cargando ... Por favor, aguarde.
+   </p>
     <p *ngFor="let producto of productos">
       🍨 {{ producto.sabor }} - $ {{ producto.precio }} - {{ producto.tamano }}
     </p>
