@@ -1,17 +1,101 @@
+// Estilos para la tarjeta principal del chat, ahora ocupa el 100% del ancho.
 .example-card {
-  max-width: 400px;
-  position:absolute;
-  bottom:12px;
-  left:50%;
-  top:75px;
+  width: 100%;
+  position: absolute; // Se posiciona de forma absoluta para no afectar el flujo de la página
+  top: 75px; // Posiciona el chat a 75px del borde superior
+  bottom: 12px; // Posiciona el chat a 12px del borde inferior
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 20px;
   overflow: scroll;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
+// Media query para asegurar un diseño responsivo en dispositivos móviles
+@media (max-width: 600px) {
+  .example-card {
+    width: 95%; // Ancho del 95% para dispositivos pequeños
+    margin: 10px auto; // Centra horizontalmente
+    top: 10px;
+    bottom: 10px;
+  }
+}
 
+// Estilos para el contenido del chat
+.chat-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
 
+// Contenedor para el historial de mensajes
+.chat-history-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// Estilos de los mensajes del usuario y del bot
+.mensaje-usuario,
+.mensaje-ia {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.mensaje-usuario {
+  background-color: #0d47a1;
+  color: white;
+  align-self: flex-end;
+}
+
+.mensaje-ia {
+  background-color: #e0e0e0;
+  color: #333;
+  align-self: flex-start;
+}
+
+// Contenedor para la barra de acciones
+.chat-actions {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 10px;
+}
+
+// Estilos para el campo de entrada de texto
+.chat-input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: #0d47a1;
+}
+
+// Estilos para el logo en el encabezado
 .example-header-image {
   background-image: url("/logo.png");
   background-size: cover;
 }
 
-
+// Estilo del botón de cerrar
+.btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

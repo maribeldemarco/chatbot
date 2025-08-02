@@ -7,7 +7,7 @@ const sessionClient = new dialogflow.SessionsClient({
   credentials: {
     private_key: credentials.private_key,
     client_email: credentials.client_email,
-  },
+  }, 
 });
 
 const projectId = credentials.project_id;

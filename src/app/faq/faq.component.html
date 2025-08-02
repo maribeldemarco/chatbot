@@ -1,0 +1,37 @@
+<mat-card class="chat-card" appearance="outlined">
+  <div mat-card-avatar class="example-header-image"></div>
+
+  <mat-card-title class="flex justify-between items-center">
+    Chat de Consultas frecuentes
+    <button mat-icon-button (click)="cerrarChat()" class="btn-cerrar">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-card-title>
+
+  <mat-card-content class="chat-content">
+    <!-- Contenedor del historial de chat -->
+    <div class="chat-history-container">
+      <div *ngFor="let mensaje of mensajes" 
+           [ngClass]="{'mensaje-usuario': mensaje.sender === 'user', 'mensaje-ia': mensaje.sender === 'ai'}">
+        {{ mensaje.text }}
+      </div>
+      <!-- Indicador de carga cuando la IA está procesando la respuesta -->
+      <div *ngIf="isLoading" class="mensaje-ia flex items-center">
+        <mat-icon class="loading-spinner">autorenew</mat-icon> Escribiendo...
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions class="chat-actions">
+    <input
+      type="text"
+      [(ngModel)]="mensajeActual"
+      (keydown.enter)="enviarMensaje()"
+      placeholder="Escribí tu mensaje"
+      class="chat-input"
+    />
+    <button mat-button color="primary" (click)="enviarMensaje()" [disabled]="isLoading || !mensajeActual.trim()">
+      Enviar
+    </button>
+  </mat-card-actions>
+</mat-card>

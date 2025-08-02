@@ -18,4 +18,8 @@ export class HomeComponent {
     this.router.navigate(['/botpedidos']);
   }
 
+  abrirFaq() {
+    this.router.navigate(['/faq']);
+  }
+
 }

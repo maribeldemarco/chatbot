@@ -5,6 +5,7 @@ import { BotPedidosComponent } from './bot-pedidos/bot-pedidos.component';
 import { HomeComponent } from './home/home.component';
 import { SaboresComponent } from './sabores/sabores.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { FaqComponent } from './faq/faq.component';
 
 export const routes: Routes = [
 
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'botpedidos', component: BotPedidosComponent },
     { path: 'home', component: HomeComponent },
     { path: 'contacto', component: ContactoComponent },
+    { path: 'faq', component: FaqComponent },
 
 
  ];
