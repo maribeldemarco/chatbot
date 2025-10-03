@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
@@ -15,13 +15,13 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./bot-pedidos.component.scss'],
   imports: [MatCardModule, RouterModule, MatIconModule, MatButtonModule, FormsModule, CommonModule, HomeComponent],
 })
-export class BotPedidosComponent implements OnInit {
-
+export class BotPedidosComponent implements OnInit, AfterViewInit {
   productos: any[] = [];
   mensaje = '';
   historial: { texto: string, emisor: 'usuario' | 'bot' }[] = [];
-
   @ViewChild('chatHistorial') chatHistorial!: ElementRef;
+  
+  private productosLoaded = false;
 
   constructor(
     private productosService: ProductosService,
@@ -33,11 +33,19 @@ export class BotPedidosComponent implements OnInit {
       next: (data) => {
         this.productos = data;
         console.log('Productos:', this.productos);
+        this.productosLoaded = true;
+        this.scrollToBottom();
       },
       error: (err) => {
         console.error('Error al cargar productos:', err);
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.productosLoaded) {
+      this.scrollToBottom();
+    }
   }
 
   cerrarChat() {
@@ -71,7 +79,7 @@ export class BotPedidosComponent implements OnInit {
     if (this.chatHistorial) {
       setTimeout(() => {
         this.chatHistorial.nativeElement.scrollTop = this.chatHistorial.nativeElement.scrollHeight;
-      }, 0);
+      }, 100);
     }
   }
 }
