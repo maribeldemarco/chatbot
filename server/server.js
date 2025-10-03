@@ -39,7 +39,47 @@ app.get('/api/sabores', async (req, res) => {
   }
 });
 
+// ✅ AGREGAR ESTE ENDPOINT NUEVO
+app.post('/api/chat', async (req, res) => {
+  const { message } = req.body;
 
+  if (!message || !message.trim()) {
+    return res.status(400).json({ error: 'El mensaje no puede estar vacío' });
+  }
+
+  const prompt = `Eres un chatbot útil para una popular heladería llamada "Ice Cream Shop". Tu propósito es responder preguntas frecuentes.
+  Aquí están los datos específicos que debes usar, no inventes nada:
+  - Dirección: Calle Falsa 123, Buenos Aires.
+  - Teléfono: 11-1111-8910.
+  - Horario: Lunes a viernes de 10:00 a 22:00, sábados y domingos de 11:00 a 23:00.
+  - Productos: Vendemos helados a domicilio.
+  Basado en esta información, responde a la pregunta del usuario: "${message}"`;
+
+  const payload = {
+    contents: [{ role: "user", parts: [{ text: prompt }] }]
+  };
+
+  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${process.env.GEMINI_API_KEY}`;
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+      res.json({ reply: result.candidates[0].content.parts[0].text });
+    } else {
+      res.status(500).json({ error: 'No se pudo generar una respuesta de Gemini' });
+    }
+  } catch (error) {
+    console.error('Error al llamar a Gemini:', error);
+    res.status(500).json({ error: 'Error al comunicarse con Gemini' });
+  }
+});
 
 app.post('/webhook', async (req, res) => {
   console.log('Webhook recibido:', JSON.stringify(req.body, null, 2)); 
