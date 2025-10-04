@@ -1,13 +1,12 @@
-// Estilos para la tarjeta principal del chat, ahora ocupa el 100% del ancho.
 .example-card {
   width: 100%;
-  position: absolute; // Se posiciona de forma absoluta para no afectar el flujo de la página
-  top: 75px; // Posiciona el chat a 75px del borde superior
-  bottom: 12px; // Posiciona el chat a 12px del borde inferior
+  position: absolute;
+  top: 75px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0 20px;
-  overflow: scroll;
+  overflow: hidden;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -15,34 +14,35 @@
   font-family: 'Arial', sans-serif;
 }
 
-// Media query para asegurar un diseño responsivo en dispositivos móviles
 @media (max-width: 600px) {
   .example-card {
-    width: 95%; // Ancho del 95% para dispositivos pequeños
-    margin: 10px auto; // Centra horizontalmente
+    width: 95%;
+    margin: 10px auto;
     top: 10px;
     bottom: 10px;
   }
 }
 
-// Estilos para el contenido del chat
 .chat-content {
-  flex-grow: 1;
-  overflow-y: auto;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   padding: 1rem;
   background-color: #f9f9f9;
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
 }
 
-// Contenedor para el historial de mensajes
 .chat-history-container {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-// Estilos de los mensajes del usuario y del bot
 .mensaje-usuario,
 .mensaje-ia {
   max-width: 80%;
@@ -64,7 +64,6 @@
   align-self: flex-start;
 }
 
-// Contenedor para la barra de acciones
 .chat-actions {
   display: flex;
   padding: 1rem;
@@ -72,7 +71,6 @@
   gap: 10px;
 }
 
-// Estilos para el campo de entrada de texto
 .chat-input {
   flex-grow: 1;
   padding: 10px 15px;
@@ -87,16 +85,13 @@
   border-color: #0d47a1;
 }
 
-// Estilos para el logo en el encabezado
 .example-header-image {
   background-image: url("/logo.png");
   background-size: cover;
 }
 
-// Estilo del botón de cerrar
 .btn-cerrar {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-
