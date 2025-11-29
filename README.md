@@ -1,27 +1,51 @@
-# Proyectochatbot
+🍦 Proyecto Chatbot Heladería
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
+✨ Angular + Node + Express + MongoDB + IA (Gemini / Dialogflow)
 
-## Development server
+Aplicación full-stack que permite gestionar productos y pedidos de helados, junto con un chatbot híbrido (IA generativa + flujo estructurado). Incluye formulario de contacto.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+🚀 Tecnologías Principales
+🌐 Frontend
 
-## Code scaffolding
+⚡ Angular 18
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🎨 Angular Material + CSS 
 
-## Build
+☁️ Deploy  Frontend en Netlify
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+🖥️ Backend
 
-## Running unit tests
+🟩 Node.js
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+🚏 Express
 
-## Running end-to-end tests
+☁️ Deploy Backend en Render
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+🗄️ Base de Datos
 
-## Further help
+🍃 MongoDB Atlas
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Colecciones: productos y pedidos
+
+🤖 Inteligencia Artificial
+
+🌟 Gemini IA Generativa (Google)
+Responde preguntas frecuentes del usuario con lenguaje natural.
+
+🤖 Dialogflow
+Maneja el chat estructurado para pedidos de helados.
+
+
+📬 Formulario de Contacto
+
+Los usuarios pueden enviar consultas directamente desde la página.
+
+🎨 Interfaz moderna y accesible
+
+Basada en Angular Material.
+
+
+📝 Notas
+
+Aunque Dialogflow no es tan utilizado hoy, sigue siendo muy útil y confiable para flujos guiados como pedidos.
+
