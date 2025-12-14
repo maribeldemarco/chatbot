@@ -14,6 +14,10 @@ img{ height:500px}
   font-size: 80px;
   font-weight: bold;
 }
+.texto p:nth-child(1) {
+  margin-top: 5px !important;
+}
+
 
 p{margin-top: 30px !important}
 
