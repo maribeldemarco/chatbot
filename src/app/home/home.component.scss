@@ -1,3 +1,7 @@
+#home {
+  padding-bottom: 60px;
+}
+
 img {
   height: 430px;
 }
@@ -5,33 +9,33 @@ img {
 .texto {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Separa todos los elementos */
+  gap: 20px;
 }
 
 .texto p {
-  margin-left: 25px; /* Controlás el espaciado solo con gap */
+  margin-left: 25px;
+  margin-top: 0;
 }
 
 .texto p:nth-child(1),
-.texto p:nth-child(2) {
-  font-size: 80px;
+.texto p:nth-child(2),
+.texto p:nth-child(3) {
+  font-size: 70px;
   font-weight: bold;
+  line-height: 0.5;
+  margin-top: 0;
 }
+
 .texto p:nth-child(1) {
   margin-top: 5px !important;
 }
 
-
-p{margin-top: 30px !important}
-
-.texto p:nth-child(3) {
-  font-size: 80px;
-  font-weight: bold;
-}
-.texto p:nth-child(4) {
+.texto p:nth-child(4),
+.texto p:nth-child(5) {
   font-size: 20px;
   font-weight: bold;
-  margin-top: 20px;
+  color: #333;
+  margin-top: 0;
 }
 
 section {
@@ -52,10 +56,8 @@ button {
   align-self: flex-start;
   margin-left: 20px;
   margin-bottom: 10px;
-
 }
 
 .bootstrap {
   visibility: hidden;
 }
-

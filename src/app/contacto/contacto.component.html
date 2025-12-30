@@ -1,34 +1,45 @@
 <div id="contacto">
-  <h1>Escribinos tu consulta
+  <h1>Escribinos tu consulta</h1>
 
-  </h1>
   <section class="contenedor">
     <form class="formulario" action="https://formspree.io/f/manjzrad" method="POST">
       <mat-form-field appearance="fill">
         <mat-label>Nombre</mat-label>
         <input type="name" name="name" matInput>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input type="email" name="email" matInput>
       </mat-form-field>
 
-
       <mat-form-field>
         <mat-label>Select</mat-label>
-        <mat-select>
+        <mat-select name="tipo">
           <mat-option value="one">Consulta 🍦</mat-option>
           <mat-option value="two">Comentario sobre atención 😊</mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field>
         <mat-label>Escribe aqui</mat-label>
         <textarea type="textarea" name="textarea" matInput rows="5"></textarea>
-
       </mat-form-field>
+
       <button type="submit" mat-raised-button>Enviar</button>
     </form>
 
-    <img src="/public/image.png" alt="">
+    <!-- Carrusel -->
+    <div class="carrusel-container">
+      <ngb-carousel [interval]="3000">
+        @for (img of images; track img; let i = $index) {
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="img" alt="Imagen {{ i + 1 }}" />
+            </div>
+          </ng-template>
+        }
+      </ngb-carousel>
+    </div>
   </section>
 </div>

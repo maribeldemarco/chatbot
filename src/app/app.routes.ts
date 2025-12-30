@@ -9,13 +9,13 @@ import { FaqComponent } from './faq/faq.component';
 
 export const routes: Routes = [
 
-   { path: '', component: HomeComponent }, // Pantalla de inicio
+  { path: '', component: HomeComponent }, // Pantalla de inicio
   { path: 'sabores', component: SaboresComponent },
-    { path: 'botpedidos', component: BotPedidosComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'contacto', component: ContactoComponent },
-    { path: 'faq', component: FaqComponent },
+  { path: 'botpedidos', component: BotPedidosComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'faq', component: FaqComponent },
 
 
- ];
+];
 

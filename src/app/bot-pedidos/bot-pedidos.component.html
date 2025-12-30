@@ -2,27 +2,17 @@
 
 <mat-card class="example-card" appearance="outlined">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Chat de pedidos</mat-card-title>
     <button mat-icon-button (click)="cerrarChat()" class="btn-cerrar">
       <mat-icon>close</mat-icon>
     </button>
-    <mat-card-subtitle>
-      Bienvenido a nuestro bot de pedidos. Te comentamos cuáles son los gustos disponibles.
-      Empieza el chat con nosotros para gestionar el delivery a domicilio!
-    </mat-card-subtitle>
+
   </mat-card-header>
 
   <mat-card-content class="chat-content">
-     <div *ngIf="!productos || productos.length === 0">
-    <p>⏳ Espera, se está cargando...</p>
-  </div>
-    <p *ngFor="let producto of productos">
-      🍨 {{ producto.sabor }} - $ {{ producto.precio }} - {{ producto.tamano }}
-    </p>
-
+    ¡Bienvenido! Soy tu asistente de pedidos. Escribe para comenzar.
+    <p>Si aún no ves respuesta...⏳ Espera, se está cargando...</p>
     <hr>
-
     <!-- Contenedor del historial con referencia para scroll -->
     <div class="chat-history-container" #chatHistorial>
       <div *ngFor="let mensaje of historial">
@@ -34,13 +24,8 @@
   </mat-card-content>
 
   <mat-card-actions class="chat-actions">
-    <input
-      type="text"
-      [(ngModel)]="mensaje"
-      (keydown.enter)="enviar()"
-      placeholder="Escribí tu mensaje"
-      class="chat-input"
-    />
+    <input type="text" [(ngModel)]="mensaje" (keydown.enter)="enviar()" placeholder="Escribí tu mensaje"
+      class="chat-input" />
     <button mat-icon-button color="primary" (click)="enviar()">
       <mat-icon>send</mat-icon>
     </button>

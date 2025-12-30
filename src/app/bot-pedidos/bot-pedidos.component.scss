@@ -85,10 +85,11 @@
   border-color: #0d47a1;
 }
 
-.example-header-image {
-  background-image: url("/logo.png");
-  background-size: cover;
+
+.mat-mdc-card-header {
+  padding-bottom: 10px !important;
 }
+
 
 .btn-cerrar {
   position: absolute;
