@@ -44,8 +44,8 @@ font-family: "Work Sans", sans-serif;}
   margin-right: auto;}
   
 button{
-  width: 250px;
-  height:60px;
+width: 250px;
+height:60px;
 background-color: rgb(253, 132, 178);
 margin-top: 20px;
 padding: 10px;
@@ -91,4 +91,9 @@ mat-card-content {  white-space: nowrap;}
   text-align: center;
   font-weight: 500;
   margin: 0px 0;
+}
+#fondotexto {
+  box-shadow: none !important; /* Esto borra la sombra/línea */
+  background-color: transparent !important; /* Esto quita el fondo blanco */
+  border: none !important;
 }
