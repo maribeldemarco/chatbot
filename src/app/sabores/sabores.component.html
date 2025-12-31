@@ -1,47 +1,51 @@
 <div id="sabores" >
   <h1>Un helado para cada ocasión</h1>
   <br>
-  <img class="helado" src="/public/heladopalito.png" alt="">
+  <img class="helado" src="/public/heladopalito.png" alt="iconohelado">
   <div class="cardprincipal"> 
-    <mat-card id="fondotexto">
-    <div class="texto">
-  <p>
+  <mat-card id="fondotexto">
+  <div class="texto">
+  
+    <p>
     En Ice Cream Shop creemos que cada momento merece un sabor especial.<br>
-    No vendemos helado. Creamos recuerdos, sonrisas, y un motivo para celebrar.<br><br>
+    Te invitamos a conocer nuestros productos...
+    No vendemos solo helado. Creamos recuerdos, sonrisas, y un motivo para celebrar.<br><br>
 
     Nuestros helados son elaborados con ingredientes naturales, seleccionados con cuidado y pasión.<br>
-    Cada sabor es una historia, una experiencia única que se derrite en tu boca.<br>
-    Desde la clásica crema americana hasta exóticos sabores como mango picante o chocolate belga con almendras.<br><br>
+    <br>
+    <br>
 
-    ¿Tiramisú? Claro que sí. ¿Dulce de leche granizado? Por supuesto. ¿Helado vegano de frutos rojos? ¡También!<br>
     Contamos con opciones para todos los gustos y estilos de vida, porque todos merecen un momento dulce.<br><br>
 
-    Cada cucharada es una fiesta. Cada aroma, un recuerdo de la infancia. Cada visita, una excusa para sonreír.<br>
     Ya sea verano o invierno, solo o acompañado, un helado siempre encuentra su lugar.<br><br>
 
-    Ice Cream Shop no es solo una heladería. Es tu lugar feliz, tu momento de pausa, tu pequeño gran placer diario.<br>
-    Vení a descubrir tu sabor favorito. O mejor: dejate sorprender.<br><br>
+    Hay clásicos de siempre y opciones para quienes quieren probar algo distinto.
 
-    Porque en Ice Cream Shop, hay un helado para cada ocasión. Y esta ocasión… es ahora. 🍨
+    Podés elegir sabores frutales, cremosos, de chocolate y también alternativas para distintos gustos y
+    necesidades.
+    Elegí uno, combiná varios o cambiá cada vez.
+
+    Porque el mejor sabor es el que te gusta a vos. 🍦
   </p>
+  
   <div class="botoncentrado">
   <button (click)="abrirBot()"> Hacé tu pedido</button>
   </div>
   </div>
   </mat-card>
-  <div class="cardcontainer">
-      <div *ngIf="sabores.length === 0" class="cartel">
+<div class="cardcontainer">
+<div *ngIf="sabores.length === 0" class="cartel">
   ⏳ Preparando la sección...
   Si aún no ves los sabores, aparecerán en breve.
+ </div>
+  <mat-card class="example-card" *ngFor="let sabor of sabores">
+
+   <img mat-card-image [src]="sabor.imagen" [alt]="'Helado'">
+   <br>
+   <mat-card-content>{{ sabor.nombre }} </mat-card-content>
+
+  </mat-card>
+
 </div>
-    <mat-card class="example-card" *ngFor="let sabor of sabores">
-
-      <img mat-card-image [src]="sabor.imagen" [alt]="'Helado'">
-      <br>
-      <mat-card-content>{{ sabor.nombre }} </mat-card-content>
-
-    </mat-card>
-
 </div>
-  </div>
 </div>
