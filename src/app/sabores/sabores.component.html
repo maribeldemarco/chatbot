@@ -1,50 +1,19 @@
-<div id="sabores" >
-  <h1>Un helado para cada ocasión</h1>
+<div id="sabores">
+  <h1>Conocé nuestros sabores</h1>
   <br>
-  <img class="helado" src="/public/heladopalito.png" alt="iconohelado">
-  <div class="cardprincipal"> 
-  <mat-card id="fondotexto">
-  <div class="texto">
-  
-    <p>
-    En Ice Cream Shop creemos que cada momento merece un sabor especial.<br>
-    Te invitamos a conocer nuestros productos...
-    No vendemos solo helado. Creamos recuerdos, sonrisas, y un motivo para celebrar.<br><br>
-
-    Nuestros helados son elaborados con ingredientes naturales, seleccionados con cuidado y pasión.<br>
-    <br>
-    
-    Contamos con opciones para todos los gustos y estilos de vida, porque todos merecen un momento dulce.<br>
-
-    Ya sea verano o invierno, solo o acompañado, un helado siempre encuentra su lugar.<br>
-
-    Hay clásicos de siempre y opciones para quienes quieren probar algo distinto.
-
-    Podés elegir sabores frutales, cremosos, de chocolate y también alternativas para distintos gustos y
-    necesidades.
-    Elegí uno, combiná varios o cambiá cada vez.
-
-    Porque el mejor sabor es el que te gusta a vos. 🍦
-  </p>
-  
-  <div class="botoncentrado">
-  <button (click)="abrirBot()"> Hacé tu pedido</button>
+  <img class="helado" src="/public/heladopalito.png" alt="">
+  <div class="cardprincipal">
+    <div class="cardcontainer">
+      <div *ngIf="sabores.length === 0" class="cartel">
+        ⏳ Preparando la sección...
+        Si aún no ves los sabores, aparecerán en breve.
+      </div>
+      <mat-card class="example-card" *ngFor="let sabor of sabores">
+        <img mat-card-image [src]="sabor.imagen" [alt]="'Helado'">
+        <br>
+        <mat-card-content>{{ sabor.nombre }}</mat-card-content>
+      </mat-card>
+    </div>
   </div>
-  </div>
-  </mat-card>
-<div class="cardcontainer">
-<div *ngIf="sabores.length === 0" class="cartel">
-  ⏳ Preparando la sección...
-  Si aún no ves los sabores, aparecerán en breve.
- </div>
-  <mat-card class="example-card" *ngFor="let sabor of sabores">
-
-   <img mat-card-image [src]="sabor.imagen" [alt]="'Helado'">
-   <br>
-   <mat-card-content>{{ sabor.nombre }} </mat-card-content>
-
-  </mat-card>
-
 </div>
-</div>
-</div>
+
