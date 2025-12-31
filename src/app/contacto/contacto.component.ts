@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NgbCarousel, NgbSlide, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -22,10 +22,10 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './contacto.component.scss'
 })
 export class ContactoComponent {
-images = [
-  'public/heladeria1.jpg',
-  'public/heladeria2.jpg',
-  'public/heladeriafoto.jpg',
+  images = [
+    '/public/heladeria1.jpg',
+    '/public/heladeria2.jpg',
+    '/public/heladeriafoto.jpg',
   ];
   paused = false;
   unpauseOnArrow = false;
@@ -34,6 +34,13 @@ images = [
   pauseOnFocus = true;
 
   @ViewChild('carousel', { static: true }) carousel!: NgbCarousel;
+
+  onSubmit(event: Event) {
+    const form = event.target as HTMLFormElement;
+    setTimeout(() => {
+      form.reset();
+    }, 100);
+  }
 
   togglePaused() {
     if (this.paused) {
@@ -57,3 +64,4 @@ images = [
     }
   }
 }
+
