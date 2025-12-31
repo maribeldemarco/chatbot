@@ -2,7 +2,12 @@
   <h1>Escribinos tu consulta</h1>
 
   <section class="contenedor">
-    <form class="formulario" action="https://formspree.io/f/manjzrad" method="POST">
+     <form ngNoForm
+      #contactForm
+      class="formulario"
+      action="https://formspree.io/f/manjzrad"
+      method="POST"
+      (submit)="onSubmit($event)">
       <mat-form-field appearance="fill">
         <mat-label>Nombre</mat-label>
         <input type="name" name="name" matInput>
