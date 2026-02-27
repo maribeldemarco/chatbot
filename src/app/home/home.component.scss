@@ -1,15 +1,25 @@
 #home {
   padding-bottom: 60px;
+  padding: 0 16px 60px;
+  box-sizing: border-box;
 }
 
-img {
-  height: 430px;
+section {
+  font-family: "Work Sans", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgb(101, 43, 11);
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .texto {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1 1 300px;
+  min-width: 0;
 }
 
 .texto p {
@@ -20,7 +30,7 @@ img {
 .texto p:nth-child(1),
 .texto p:nth-child(2),
 .texto p:nth-child(3) {
-  font-size: 70px;
+  font-size: clamp(36px, 6vw, 70px);
   font-weight: bold;
   line-height: 0.5;
   margin-top: 0;
@@ -32,26 +42,25 @@ img {
 
 .texto p:nth-child(4),
 .texto p:nth-child(5) {
-  font-size: 20px;
+  font-size: clamp(14px, 2vw, 20px);
   font-weight: bold;
   color: #333;
   margin-top: 0;
 }
 
-section {
-  font-family: "Work Sans", sans-serif;
-  display: flex;
-  color: rgb(101, 43, 11);
-  align-items: center;
-  justify-content: space-between;
+.imagenhome {
+  height: clamp(200px, 35vw, 430px);
+  max-width: 100%;
+  object-fit: contain;
+  flex: 1 1 250px;
 }
 
 button {
   background-color: rgb(255, 217, 80);
   border-radius: 122px;
   font-family: "Work Sans", sans-serif;
-  font-size: 24px;
-  padding: 15px;
+  font-size: clamp(14px, 2.5vw, 24px);
+  padding: clamp(8px, 1.5vw, 15px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   align-self: flex-start;
   margin-left: 20px;
@@ -60,4 +69,31 @@ button {
 
 .bootstrap {
   visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .texto p {
+    margin-left: 0;
+  }
+
+  .texto p:nth-child(1),
+  .texto p:nth-child(2),
+  .texto p:nth-child(3) {
+    line-height: 0.9;  
+  }
+
+  button {
+    margin-left: 0;
+  }
+
+  .imagenhome {
+    width: 100%;
+    height: auto;
+  }
 }

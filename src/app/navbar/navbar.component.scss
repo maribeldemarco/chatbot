@@ -1,47 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,800;1,800&display=swap');
 
-
-
-li {
-    font-family: "Work Sans", sans-serif;
-    list-style: none ;
-    font-weight: 800;
+nav {
+  background-color: rgba(255, 240, 244, 0.95); /* fix del opacity */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-nav ul>li:not(:first-child) {
-    margin-left: 30px;
-    font-weight: bold;
-}
-
-img {height: 3em}
 
 nav ul {
-    display: flex;
-    padding-left: 10px;
-    /* Anula el padding izquierdo predeterminado del ul */
-    justify-content: flex-end;
-    align-items: center;
-    /* Alinea verticalmente los elementos al centro */
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  margin: 0;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
 }
 
+li {
+  font-family: "Work Sans", sans-serif;
+  list-style: none;
+  font-weight: 800;
+}
+
+nav ul > li:not(:first-child) {
+  margin-left: 16px;
+  font-weight: bold;
+}
+
+ul > :first-child {
+  margin-right: auto;
+  margin-left: 0;
+  align-self: center;
+}
 
 ul li a {
-    margin-right: 10px;
-    text-decoration: none;
-    color: black;
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
 }
 
-ul> :first-child {
-    margin-right: auto;
-    margin-left: 0px ;
-    /* Empuja solo el primer elemento hacia la izquierda */
-    align-self: center;
+nav ul > li:first-child a {
+  color: rgb(170, 136, 17);
+  font-size: clamp(28px, 4vw, 48px);
 }
 
-nav ul>li:first-child a {
-    color: rgb(170, 136, 17);
-    font-size: 48px;
+img {
+  height: 3em;
 }
 
-nav {background-color: rgb(255, 240, 244);
-opacity: 0.4 ;}
+@media (max-width: 480px) {
+  nav ul > li:not(:first-child) {
+    margin-left: 10px;
+  }
+
+  li a {
+    font-size: 14px;
+  }
+}

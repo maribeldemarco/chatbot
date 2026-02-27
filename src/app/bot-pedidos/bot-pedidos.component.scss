@@ -1,11 +1,11 @@
 .example-card {
-  width: 100%;
+  width: calc(100% - 40px);   /* fix del overflow */
+  max-width: 900px;            /* opcional: que no se estire de más en pantallas grandes */
   position: absolute;
   top: 75px;
   bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  margin: 0 20px;
   overflow: hidden;
   border-radius: 12px;
   display: flex;
@@ -16,10 +16,10 @@
 
 @media (max-width: 600px) {
   .example-card {
-    width: 95%;
-    margin: 10px auto;
-    top: 10px;
-    bottom: 10px;
+    width: calc(100% - 20px);  /* menos margen en mobile */
+    top: 60px;                  /* ajustá según la altura de tu navbar */
+    bottom: 8px;
+    border-radius: 8px;
   }
 }
 

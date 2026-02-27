@@ -1,13 +1,12 @@
-// Estilos para la tarjeta principal del chat, ahora ocupa el 100% del ancho.
 .example-card {
-  width: 100%;
-  position: absolute; // Se posiciona de forma absoluta para no afectar el flujo de la página
-  top: 75px; // Posiciona el chat a 75px del borde superior
-  bottom: 12px; // Posiciona el chat a 12px del borde inferior
+  width: calc(100% - 40px);
+  max-width: 900px;
+  position: absolute;
+  top: 75px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  margin: 0 20px;
-  overflow: scroll;
+  overflow: hidden;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -15,60 +14,39 @@
   font-family: 'Arial', sans-serif;
 }
 
-// Media query para asegurar un diseño responsivo en dispositivos móviles
 @media (max-width: 600px) {
   .example-card {
-    width: 95%; // Ancho del 95% para dispositivos pequeños
-    margin: 10px auto; // Centra horizontalmente
-    top: 10px;
-    bottom: 10px;
+    width: calc(100% - 20px);
+    top: 75px;  /* ajustá este valor según la altura real de tu navbar en mobile */
+    bottom: 8px;
+    border-radius: 8px;
   }
 }
 
-.bot-pedidos-card {
-  max-width: 400px;
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  top: 75px;
-  transform: translateX(-50%); // Centra el chat horizontalmente
-  overflow: scroll; // Usa 'scroll' como lo pediste
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 87px); // Ajusta la altura dinámicamente
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Agrega una sombra para un efecto 3D
-  font-family: 'Arial', sans-serif; // Cambia la fuente
-  margin-bottom: 20px; // Agrega un margen inferior
-
-  @media (max-width: 600px) {
-    max-width: 95%;
-    left: 2.5%;
-    transform: translateX(0);
-    top: 10px;
-    bottom: 10px;
-    height: auto;
+@media (max-width: 900px) {
+  .example-card {
+    top: 120px;
   }
 }
-
-
 .chat-content {
-  flex-grow: 1;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;}
-
+  overflow: hidden;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
 
 .chat-history-container {
-  flex-grow: 1;
+  flex: 1 1 auto;
   overflow-y: auto;
-  max-height: 100%;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
-
 
 .mensaje-usuario,
 .mensaje-ia {
@@ -80,13 +58,13 @@
 }
 
 .mensaje-usuario {
-  background-color: #0d47a1; // Color azul oscuro de Material
+  background-color: #0d47a1;
   color: white;
   align-self: flex-end;
 }
 
 .mensaje-ia {
-  background-color: #e0e0e0; // Gris claro
+  background-color: #e0e0e0;
   color: #333;
   align-self: flex-start;
 }
@@ -112,21 +90,23 @@
   border-color: #0d47a1;
 }
 
+.btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.example-header-image {
+  background-image: url("/logo.png");
+  background-size: cover;
+}
+
 .loading-spinner {
   animation: spin 1s linear infinite;
   margin-right: 8px;
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.example-header-image {
-  background-image: url("/logo.png");
-  background-size: cover;
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
