@@ -37,6 +37,12 @@ export class ContactoComponent {
 
   onSubmit(event: Event) {
     const form = event.target as HTMLFormElement;
+      if (!form.checkValidity()) {
+    event.preventDefault();
+    form.reportValidity(); // muestra los mensajes nativos del browser
+    return;
+  }
+
     setTimeout(() => {
       form.reset();
     }, 100);

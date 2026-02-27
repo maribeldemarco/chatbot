@@ -10,12 +10,12 @@
       (submit)="onSubmit($event)">
       <mat-form-field appearance="fill">
         <mat-label>Nombre</mat-label>
-        <input type="name" name="name" matInput>
+        <input type="name" name="name" matInput required>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" name="email" matInput>
+        <input type="email" name="email" matInput required>
       </mat-form-field>
 
       <mat-form-field>
@@ -28,7 +28,7 @@
 
       <mat-form-field>
         <mat-label>Escribe aqui</mat-label>
-        <textarea type="textarea" name="textarea" matInput rows="5"></textarea>
+        <textarea type="textarea" name="textarea" matInput rows="5" required></textarea>
       </mat-form-field>
 
       <button type="submit" mat-raised-button>Enviar</button>
