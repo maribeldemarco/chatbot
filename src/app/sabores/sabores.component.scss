@@ -8,6 +8,12 @@ img {
   background-color: #fff;
 }
 
+@media (max-width: 600px) {
+  .example-card {
+    width: calc(50% - 20px);
+  }
+}
+
 h1 {
   font-size: clamp(26px, 5vw, 46px);
   margin-top: 45px;
