@@ -10,7 +10,7 @@ img {
 
 @media (max-width: 600px) {
   .example-card {
-    width: calc(50% - 20px);
+    width: calc(50% - 20px) !important;
   }
 }
 
